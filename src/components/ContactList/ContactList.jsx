@@ -1,6 +1,7 @@
 // import cl from './ContactList.module.css';
 
 export const ContactList = ({ deleteContact, getFilteredContacts }) => {  
+  console.log(getFilteredContacts);
   return (
     <ul>
     {getFilteredContacts.map(({ id, name, number }) => (
