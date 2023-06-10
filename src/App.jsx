@@ -17,7 +17,7 @@ const contactsDefault = [
 export default function App() {
   const [contacts, setContacts] = useLocalStorage(LS_CONTACTS, contactsDefault);
   const [filter, setFilter] = 
-  useState('r');
+  useState('');
   
   const onSubmit = ({ name, number }) => {    
     const contactId = nanoid();
@@ -29,7 +29,6 @@ export default function App() {
       return;
     }
     const contact = {id: contactId, name: nameForm, number: numberForm};
-    console.log(contact);           
     setContacts(prevState => ([...prevState, contact]));   
   };
     
@@ -46,8 +45,6 @@ export default function App() {
     return contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase()));      
   }
-
-  getFilteredContacts();
 
   return (
     <div>
